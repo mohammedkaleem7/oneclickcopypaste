@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Copy-Paste",
+  "version": "1.0",
+  "description": "Ctrl+Left Click to copy selected text. Ctrl+Right Click to paste.",
+  "permissions": [
+    "clipboardRead",
+    "clipboardWrite",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "quick-copy-paste@extension",
+      "strict_min_version": "109.0"
+    }
+  }
+}
